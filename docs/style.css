@@ -1,0 +1,41 @@
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      margin: 40px;
+      color: #222;
+    }
+    h1, h2 {
+      margin-bottom: 0.4rem;
+    }
+    .card {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin: 18px 0;
+      background: #fafafa;
+    }
+    code, pre {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    pre {
+      background: #0b1020;
+      color: #e7e7e7;
+      padding: 14px 16px;
+      border-radius: 10px;
+      overflow-x: auto;
+    }
+    .note {
+      background: #fff7e6;
+      border: 1px solid #ffd48a;
+      padding: 12px 14px;
+      border-radius: 10px;
+    }
+    ul {
+      margin-top: 0.4rem;
+    }
+    .small {
+      color: #555;
+      font-size: 0.95rem;
+    }
+  </style>
