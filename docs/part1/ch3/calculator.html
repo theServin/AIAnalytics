@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Selection-Based Calculator Documentation</title>
+  <style>
+body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      margin: 40px;
+      color: #222;
+    }
+    h1, h2 {
+      margin-bottom: 0.4rem;
+    }
+    .card {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin: 18px 0;
+      background: #fafafa;
+    }
+    code, pre {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    pre {
+      background: #0b1020;
+      color: #e7e7e7;
+      padding: 14px 16px;
+      border-radius: 10px;
+      overflow-x: auto;
+    }
+    .note {
+      background: #fff7e6;
+      border: 1px solid #ffd48a;
+      padding: 12px 14px;
+      border-radius: 10px;
+    }
+    ul {
+      margin-top: 0.4rem;
+    }
+    .small {
+      color: #555;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Selection-Based Calculator Program Documentation</h1>
+  <p class="small">
+    This page documents a Python <strong>selection-based calculator</strong> that asks the user which arithmetic operation to run,
+    then executes only that operation.
+  </p>
+
+  <div class="card">
+    <h2>Program Purpose</h2>
+    <p>
+      This program improves on a “do-everything” calculator by making execution <strong>user-driven</strong>.
+      The user selects one operation (e.g., <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, or <code>sqrt</code>),
+      and the program performs only that operation.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>1) Importing a Library</h2>
+    <pre><code>import math</code></pre>
+    <p>
+      This line loads Python’s <code>math</code> library, which provides advanced mathematical functions.
+      In this program, it is used to compute a square root:
+    </p>
+    <pre><code>math.sqrt(x)</code></pre>
+  </div>
+
+  <div class="card">
+    <h2>2) Asking the User What They Want to Do</h2>
+    <pre><code>op = input("what operation would you like to perform?, e.g., [+,-,*,/,sqrt] ")</code></pre>
+    <p>
+      The program asks the user to choose an operation and stores their choice in <code>op</code>.
+      This matters because the program becomes:
+    </p>
+    <ul>
+      <li><strong>Interactive</strong> (the user controls what happens)</li>
+      <li><strong>Intentional</strong> (only the requested operation runs)</li>
+      <li><strong>Less overwhelming</strong> (no “information overload”)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>3) Using Selection (if / elif / else)</h2>
+    <p>
+      The key concept is <strong>selection</strong>. The program checks the value of <code>op</code>
+      and decides which code block to execute.
+    </p>
+
+    <h3>Addition</h3>
+    <pre><code>if op == "+":</code></pre>
+    <p>If the user types <code>+</code>, the program asks for two numbers and adds them.</p>
+
+    <h3>Subtraction</h3>
+    <pre><code>elif op == "-":</code></pre>
+    <p>If the user types <code>-</code>, the program subtracts the second value from the first.</p>
+
+    <h3>Multiplication</h3>
+    <pre><code>elif op == "*":</code></pre>
+
+    <h3>Division</h3>
+    <pre><code>elif op == "/":</code></pre>
+
+    <h3>Square Root (Unary Operation)</h3>
+    <pre><code>elif op == "sqrt":
+    x = int(input("please enter value x: "))
+    z = math.sqrt(x)</code></pre>
+
+    <div class="note">
+      <strong>Teaching moment:</strong> Not all operations require two numbers.
+      <ul>
+        <li><strong>Binary</strong> operations need two values: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code></li>
+        <li><strong>Unary</strong> operations need one value: <code>sqrt</code></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>4) Handling Invalid Input</h2>
+    <pre><code>else:
+    print("Invalid operation, please try again")</code></pre>
+    <p>
+      If the user enters something outside the allowed choices, the program does not crash.
+      It handles mistakes gracefully. This is an example of:
+    </p>
+    <ul>
+      <li><strong>Defensive programming</strong></li>
+      <li><strong>Anticipating user mistakes</strong></li>
+      <li><strong>Writing safer, more robust code</strong></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Why This Version Is Better Than the Previous Calculator</h2>
+    <table style="width:100%; border-collapse: collapse;">
+      <thead>
+        <tr>
+          <th style="text-align:left; padding:8px; border-bottom:1px solid #ddd;">Previous version</th>
+          <th style="text-align:left; padding:8px; border-bottom:1px solid #ddd;">This version</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:8px; border-bottom:1px solid #eee;">Performs all operations</td>
+          <td style="padding:8px; border-bottom:1px solid #eee;">Performs only what the user requests</td>
+        </tr>
+        <tr>
+          <td style="padding:8px; border-bottom:1px solid #eee;">Always asks for two numbers</td>
+          <td style="padding:8px; border-bottom:1px solid #eee;">Asks only for what is needed</td>
+        </tr>
+        <tr>
+          <td style="padding:8px; border-bottom:1px solid #eee;">Not interactive</td>
+          <td style="padding:8px; border-bottom:1px solid #eee;">Interactive and intentional</td>
+        </tr>
+        <tr>
+          <td style="padding:8px; border-bottom:1px solid #eee;">Information overload</td>
+          <td style="padding:8px; border-bottom:1px solid #eee;">Focused output</td>
+        </tr>
+        <tr>
+          <td style="padding:8px;">No input validation</td>
+          <td style="padding:8px;">Handles invalid choices</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Key Computing Concepts Demonstrated</h2>
+    <ul>
+      <li>Variables</li>
+      <li>User input</li>
+      <li>Selection (<code>if</code> / <code>elif</code> / <code>else</code>)</li>
+      <li>Use of libraries (<code>math</code>)</li>
+      <li>Unary vs. binary operations</li>
+      <li>Defensive / safer programming</li>
+      <li>User-driven execution flow</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Subtle but Powerful Idea (Great for Adversarial Thinking)</h2>
+    <p>
+      The program limits what the user can do to only allowed operations:
+    </p>
+    <pre><code>[ + , - , * , / , sqrt ]</code></pre>
+    <p>
+      This is an early example of <strong>controlling the input surface</strong> to prevent misuse or unexpected behavior—
+      a foundational idea in <strong>secure and robust programming</strong>.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Python Code (Reference)</h2>
+    <pre><code>import math
+
+op = input("what operation would you like to perform?, e.g., [+,-,*,/,sqrt] ")
+
+if op == "+":
+    x = int(input("please enter value x: "))
+    y = int(input("please enter value y: "))
+    z = x + y
+    print("The addition is ", z)
+
+elif op == "-":
+    x = int(input("please enter value x: "))
+    y = int(input("please enter value y: "))
+    z = x - y
+    print("The subtraction is ", z)
+
+elif op == "*":
+    x = int(input("please enter value x: "))
+    y = int(input("please enter value y: "))
+    z = x * y
+    print("The product is ", z)
+
+elif op == "/":
+    x = int(input("please enter value x: "))
+    y = int(input("please enter value y: "))
+    z = x / y
+    print("The division is ", z)
+
+elif op == "sqrt":
+    x = int(input("please enter value x: "))
+    z = math.sqrt(x)
+    print("The sqrt is ", z)
+
+else:
+    print("Invalid operation, please try again")</code></pre>
+  </div>
+
+</body>
+</html>
